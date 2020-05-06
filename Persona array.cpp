@@ -16,39 +16,39 @@ Persona;
 int p = 0;
 int main()
 {
-	Persona array[10];
-	char c;
-	FILE *archivo;
-	archivo = fopen("Persona.txt", "w+");
-	if (archivo == NULL) 
-	{
-		printf("Error de apertura del  archivo. \n");
-	}
-	else {
-	do {//mensaje para el usuario
-		printf("Introduzca su nombre completo: \n");
-		fgets(array[0].nombre, 99, stdin);
-		//mensaje para el usuario
-		printf("Introduzca el sexo de la persona: \n");
-		array[0].sexo = getc(stdin);
-		//esta línea hace flush a la entrada:
-		while ((c = getc(stdin)) != '\n' && c != EOF); 
-		//mensaje para el usuario
-		printf("Introduzca la direccion: \n");
-		fgets(array[0].direccion, 99, stdin);
-		//mensaje para el usuario
-		printf("Introduzca la religion: \n");
-		fgets(array[0].religion, 49, stdin);
-		//mensaje para el usuario
-		printf("Introduzca la escolaridad: \n");
-		fgets(array[0].escolaridad, 19, stdin);
-		//mensaje para el usuario
-        printf("Introduzca la edad: \n");
-	    scanf("%d", &array[0].edad);
-		//esta línea hace flush a la entrada:
-		while ((c = getc(stdin)) != '\n' && c != EOF); 
+  Persona array[10];
+  char c;
+  FILE *archivo;
+  archivo = fopen("Persona.txt", "w+");
+  if (archivo == NULL) 
+{
+  printf("Error de apertura del  archivo. \n");
+}
+else {
+do {//mensaje para el usuario
+   printf("Introduzca su nombre completo: \n");
+   fgets(array[0].nombre, 99, stdin);
+   //mensaje para el usuario
+   printf("Introduzca el sexo de la persona: \n");
+   array[0].sexo = getc(stdin);
+   //esta línea hace flush a la entrada:
+   while ((c = getc(stdin)) != '\n' && c != EOF); 
+   //mensaje para el usuario
+   printf("Introduzca la direccion: \n");
+   fgets(array[0].direccion, 99, stdin);
+   //mensaje para el usuario
+   printf("Introduzca la religion: \n");
+   fgets(array[0].religion, 49, stdin);
+   //mensaje para el usuario
+   printf("Introduzca la escolaridad: \n");
+   fgets(array[0].escolaridad, 19, stdin);
+   //mensaje para el usuario
+   printf("Introduzca la edad: \n");
+   scanf("%d", &array[0].edad);
+   //esta línea hace flush a la entrada:
+   while ((c = getc(stdin)) != '\n' && c != EOF); 
 
-	fwrite(&array[0].nombre, strlen(array[0].nombre), 1 , archivo);
+        fwrite(&array[0].nombre, strlen(array[0].nombre), 1 , archivo);
 	//salida de datos
 	fprintf(archivo, "%s", &array[0].sexo);
 
@@ -64,8 +64,6 @@ int main()
 	 fclose(archivo);
     }//fin del código
 }
-
-
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
 // Depurar programa: F5 o menú Depurar > Iniciar depuración
 
