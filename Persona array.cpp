@@ -13,56 +13,49 @@ typedef struct persona
 	unsigned short int edad;
 }
 Persona;
-int p = 0;
+int p = 0, i = 0;
 int main()
 {
-  Persona array[10];
+  Persona array_personas[10];
   char c;
-  FILE *archivo;
-  archivo = fopen("Persona.txt", "w+");
-  if (archivo == NULL) 
+  FILE *aarchivo;
+  aarchivo = fopen("miarchivo.bin", "w+");
+  if (aarchivo == NULL) 
 {
   printf("Error de apertura del  archivo. \n");
 }
 else {
 do {//mensaje para el usuario
    printf("Introduzca su nombre completo: \n");
-   fgets(array[0].nombre, 99, stdin);
-   //mensaje para el usuario
+   fgets(array_personas[i].nombre, 99, stdin);
    printf("Introduzca el sexo de la persona: \n");
-   array[0].sexo = getc(stdin);
+   array[i].sexo = getc(stdin);
    //esta línea hace flush a la entrada:
    while ((c = getc(stdin)) != '\n' && c != EOF); 
    //mensaje para el usuario
    printf("Introduzca la direccion: \n");
-   fgets(array[0].direccion, 99, stdin);
-   //mensaje para el usuario
+   fgets(array_personas[i].direccion, 99, stdin);
    printf("Introduzca la religion: \n");
-   fgets(array[0].religion, 49, stdin);
-   //mensaje para el usuario
+   fgets(array_personas[i].religion, 49, stdin);
    printf("Introduzca la escolaridad: \n");
-   fgets(array[0].escolaridad, 19, stdin);
-   //mensaje para el usuario
+   fgets(array_personas[i].escolaridad, 19, stdin);
    printf("Introduzca la edad: \n");
-   scanf("%d", &array[0].edad);
+   scanf("%hu", &array_personas[i].edad);
    //esta línea hace flush a la entrada:
    while ((c = getc(stdin)) != '\n' && c != EOF); 
+fwrite(&array_personas[i].nombre, strlen(array_personas[i].nombre), 1 , archivo);
+fprintf(archivo, "%s", &array[0].sexo);
 
-        fwrite(&array[0].nombre, strlen(array[0].nombre), 1 , archivo);
-	//salida de datos
-	fprintf(archivo, "%s", &array[0].sexo);
+fwrite(&array_personas[i].direccion, strlen(array_personas[i].direccion), 1 , aarchivo);
 
-	fwrite(&array[0].direccion, strlen(array[0].direccion), 1 , archivo);
+fwrite(&array_personas[i].religion, strlen(array_personas[i].religion), 1 , aarchivo);
 
-	fwrite(&array[0].religion, strlen(array[0].religion), 1 , archivo);
-
-	fwrite(&array[0].escolaridad, strlen(array[0].escolaridad), 1 , archivo);
+fwrite(&array_personas[i].escolaridad, strlen(array_personas[i].escolaridad), 1 , aarchivo);
 		
-	fprintf(archivo, "%d", array[0].edad); p= p+1;
-	}
-	 while (p <= 10);
-	 fclose(archivo);
-    }//fin del código
+fprintf(aarchivo, "%d", array_personas[i].edad); p= p+1;}
+ while (p <= 10);
+ fclose(aarchivo);
+ }//fin del código
 }
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
 // Depurar programa: F5 o menú Depurar > Iniciar depuración
