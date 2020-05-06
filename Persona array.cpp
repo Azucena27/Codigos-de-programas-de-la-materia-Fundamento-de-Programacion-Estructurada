@@ -44,7 +44,7 @@ do {//mensaje para el usuario
    //esta línea hace flush a la entrada:
    while ((c = getc(stdin)) != '\n' && c != EOF); 
 fwrite(&array_personas[i].nombre, strlen(array_personas[i].nombre), 1 , archivo);
-fprintf(archivo, "%s", &array[0].sexo);
+fprintf(archivo, "%s", &array_personas[i].sexo);
 
 fwrite(&array_personas[i].direccion, strlen(array_personas[i].direccion), 1 , aarchivo);
 
